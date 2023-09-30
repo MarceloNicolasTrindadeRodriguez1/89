@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Script  -->
     <link rel="stylesheet" href="/styles.css">
-    <link rel="script" href="/script.js">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <title>Vieux Port Salaire</title>
 </head>
 <body>
@@ -18,10 +21,13 @@
 </div>
     </header>
 <!-- header  -->
+<!-- TWO CONTAINERS -->
+<div class="container text-left">
 
-<div class="column-container">
-    <div class="column">
-        <h1>Calcule ton salaire au Vieux Port de Montreal</h1>
+    <div class="row align-items-start">
+    <div class="col">
+        <h1 class="title">Calcule ton salaire au Vieux Port de Montreal</h1>
+        <form>
         <label for="TauxHoraire">Ton Taux horaire:</label>
         <input type="number" id="TauxHoraire" placeholder="Inscrit ton taux horaire"><br></br>
 
@@ -37,21 +43,36 @@
         <label for="heureSemaine">Combien d'heure a tu fais durant les 2 semaines de paie:</label>
         <input type="number" id="heureSemaine" placeholder="Inscrit le nombre d'heure"><br></br>
 
+        <button type="button" onclick="calculeSalaire()">Calcule salaire</button>
 
-        <button onclick="">Calcule mon salaire</button>
+
+
+    </form>
 
 
     </div>
-    <div class="column">
-        <h2>Column 2</h2>
-        <p>This is the content of column 2.</p>
+    <div class="col" id="resultat">
+        
 
     </div>
 
 
+</div>
+</div>
+
+<script>
+    function calculeSalaire(){
+    const TauxHoraire = parseFloat(document.getElementById('TauxHoraire').value);
+    const heureSemaine = parseFloat(document.getElementById('heureSemaine').value);
+
+    const salaireBrute = TauxHoraire * heureSemaine;
+    document.getElementById('resultat').innerText = `Salaire: $${salaireBrute.toFixed(2)}`;
 
 
 
+    
+    }
+</script>
 
 </body>
 </html>

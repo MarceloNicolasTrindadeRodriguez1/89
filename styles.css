@@ -25,14 +25,11 @@ img {
 
 
 /*  Two column SECTION     */
-
-.column-container {
-    display: flex;
-    justify-content: space-between;
+.title {
+    text-align: center;
 }
 
-.column {
-    width: 48%; /* Adjust as needed */
-    padding: 10px;
-    border: 1px solid #ccc;
+form {
+    padding: 20px;
+    margin-top: 20px;
 }
