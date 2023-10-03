@@ -28,20 +28,25 @@
     <div class="col">
         <h1 class="title">Calcule ton salaire au Vieux Port de Montreal</h1>
         <form>
+
+        <label for="NombreHeure">Nombre d'heures en regulier:</label>
+        <input type="number" id="NombreHeure" step="0.01" >
+
         <label for="TauxHoraire">Ton Taux horaire:</label>
-        <input type="number" id="TauxHoraire" placeholder="Inscrit ton taux horaire"><br></br>
+        <input type="number" id="TauxHoraire" step="0.01" ><br></br>
+        
 
 
-        <label for="quartNuit">Combien de quart de nuit a tu fais:</label>
-        <input type="number" id="quartNuit" placeholder="Inscrit les quart de nuit"><br></br>
+        <label for="NombreHeureTS">Nombre d'heures en TS:</label>
+        <input type="number" id="NombreHeureTS"><br></br>
+
+     
 
 
-        <label for="quartTS">Combien d'heure en TS a tu fais:</label>
-        <input type="number" id="quartTS" placeholder="Inscrit le nombre d'heure"><br></br>
+        <label for="NombreHeureNuit">Nombre d'heure de nuit:</label>
+        <input type="number" id="NombreHeureNuit" ><br></br>
 
 
-        <label for="heureSemaine">Combien d'heure a tu fais durant les 2 semaines de paie:</label>
-        <input type="number" id="heureSemaine" placeholder="Inscrit le nombre d'heure"><br></br>
 
         <button type="button" onclick="calculeSalaire()">Calcule salaire</button>
 
@@ -62,14 +67,22 @@
 
 <script>
     function calculeSalaire(){
-    const TauxHoraire = parseFloat(document.getElementById('TauxHoraire').value);
-    const heureSemaine = parseFloat(document.getElementById('heureSemaine').value);
+    const nombreHeure = parseFloat(document.getElementById('NombreHeure').value);    
+    const tauxHoraire = parseFloat(document.getElementById('TauxHoraire').value);
+    const nombreHeureTS = parseFloat(document.getElementById('NombreHeureTS').value);
+    const nombreHeureNuit = parseFloat(document.getElementById('NombreHeureNuit').value);
+   
+    let revenue = (nombreHeure * tauxHoraire) + (nombreHeureTS * (tauxHoraire * 1.5)) + (nombreHeureNuit * 1.1);
 
-    const salaireBrute = TauxHoraire * heureSemaine;
-    document.getElementById('resultat').innerText = `Salaire: $${salaireBrute.toFixed(2)}`;
+    console.log(revenue);
 
 
 
+
+    /*console.log(nombreHeure);
+    console.log(tauxHoraire);
+    console.log(nombreHeureTS);
+    console.log(nombreHeureNuit);*/
     
     }
 </script>
