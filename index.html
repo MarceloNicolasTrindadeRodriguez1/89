@@ -34,6 +34,9 @@
 
         <label for="TauxHoraire">Ton Taux horaire:</label>
         <input type="number" id="TauxHoraire" step="0.01" ><br></br>
+
+
+
         
 
 
@@ -57,7 +60,8 @@
 
     </div>
     <div class="col" id="resultat">
-        
+        <h1 id="titre"></h1><br></br>
+        <h2 id="resultat_brut"></h2>
 
     </div>
 
@@ -73,6 +77,8 @@
     const nombreHeureNuit = parseFloat(document.getElementById('NombreHeureNuit').value);
    
     let revenue = (nombreHeure * tauxHoraire) + (nombreHeureTS * (tauxHoraire * 1.5)) + (nombreHeureNuit * 1.1);
+    document.getElementById("resultat_brut").innerHTML =  `Total Brut: ${revenue}`;
+    document.getElementById("titre").innerHTML =  "Releve des retenus potentiel";
 
     console.log(revenue);
 
