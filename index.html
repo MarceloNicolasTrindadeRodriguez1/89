@@ -62,6 +62,7 @@
     <div class="col" id="resultat">
         <h1 id="titre"></h1><br></br>
         <h2 id="resultat_brut"></h2>
+        <h3 id="retenues"></h3>
         <h2 id="resultat_net"></h2>
         
        
@@ -86,12 +87,35 @@
     const nombreHeureNuit = parseFloat(document.getElementById('NombreHeureNuit').value);
    
     let revenue = (nombreHeure * tauxHoraire) + (nombreHeureTS * (tauxHoraire * 1.5)) + (nombreHeureNuit * 1.1);
+    revenue = revenue.toFixed(2);
     document.getElementById("resultat_brut").innerHTML =  `Total Brut: ${revenue} <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Avant Imposable">
             ?
           </button>`;
     document.getElementById("titre").innerHTML =  "Releve des retenus potentiel";
 
-    console.log(revenue);
+    /*Afficher les retenues*/
+    const rrq = (revenue * 0.06).toFixed(2);
+    const impoFed = (revenue * 0.08).toFixed(2);
+    const rqap = (revenue * 0.049).toFixed(2);
+    /*const cotAE;
+    const impoProv;
+    const afpcros;*/
+    document.getElementById("retenues").innerHTML = ` <h3>Retenues</h3> RRQ/RPC :  ${rrq}  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Regime de retraite du Canada (environ 6% du salaire brut)">
+            ?
+          </button><br></br>
+          IMP FED: ${impoFed} <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Impot Federal varie selon ton salaire (mit a 8% pour une estimation)">
+            ?
+          </button><br></br>
+          RQAP: ${rqap} <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Regime quebecois d'assurance parentale">
+            ?
+          </button>`
+          
+          
+          ;
+
+
+
+    
 
 
 
